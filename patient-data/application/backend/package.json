@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "0.0.0",
   "description": "TypeScript + Routing Controllers + Express API Server",
-  "author": "Vinay Singh",
+  "author": "Tarandeep Singh",
   "license": "ISC",
   "moduleResolution": "node",
   "scripts": {
