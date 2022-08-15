@@ -19,7 +19,7 @@ export class DataTransferContract extends Contract {
                 BloodGroup:"b+",
                 EyeColor:"brown",
                 ID:"1",
-                Name:"Vinay",
+                Name:"Tarandeep",
                 docType:"patient"
             }
         ];
