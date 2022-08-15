@@ -169,8 +169,9 @@ export class DataTransferContract extends Contract {
     //     var buffer bytes.Buffer
 	// buffer.WriteString("[")
 
-        let resultsIterator, err = await ctx.stub.getStateByRange(startKey, endKey);
-        while(resultsIterator.hasNext()){
+        let iterator, err = await ctx.stub.getStateByRange(startKey, endKey);
+
+        for(let resultsIterator of iterator){
             let queryResponse, err = resultsIterator.Next()
             if (err != undefined) {
                 return Error(err.Error())
