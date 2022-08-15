@@ -1,4 +1,4 @@
-interface keys{
-    user:string;
-    key:string;
+interface keys {
+    user: string;
+    key: string;
 }
