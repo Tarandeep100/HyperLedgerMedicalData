@@ -273,10 +273,10 @@ app.post("/create_doctor", async (req, res) => {
 app.post("/read_doctor", async (req, res) => {
     let id = req.query.id.toString()
 
-    if (id == undefined) {
-        res.json({ "error": "no id in request" })
-        res.end()
-    }
+    // if (id == undefined) {
+    //     res.json({ "error": "no id in request" })
+    //     res.end()
+    // }
 
     let gatewayOpts: GatewayOptions = {
         wallet,
@@ -288,7 +288,7 @@ app.post("/read_doctor", async (req, res) => {
     const network = await gateway.getNetwork(channelName);
     const contract = network.getContract(chaincodeName);
 
-    let result = await contract.evaluateTransaction('ReadDoctor', id);
+    let result = (id == undefined) ? await contract.evaluateTransaction('ReadAllDoctor') : await contract.evaluateTransaction('ReadDoctor', id);
     let temp = prettyJSONString(result.toString())
     res.json(temp)
     res.end()

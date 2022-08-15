@@ -176,7 +176,7 @@ export class DataTransferContract extends Contract {
                 return Error(err.Error())
             }
 
-            allDocList.push(queryResponse.Value);
+            allDocList.push(queryResponse);
             // // Add a comma before array members, suppress it for the first array member
             // if bArrayMemberAlreadyWritten == true {
             //     buffer.WriteString(",")
