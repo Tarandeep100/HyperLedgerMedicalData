@@ -161,7 +161,7 @@ export class DataTransferContract extends Contract {
     @Transaction(false)
     public async ReadAllDoctor(ctx: Context) {
         let allDocList = [];
-        // let docList = ["D1", "D2", "D3"];//doctors id list
+        let docList = ["D1", "D2", "D3"];//doctors id list
 
         let startKey= "D1";
         let endKey = "D3";
@@ -169,50 +169,50 @@ export class DataTransferContract extends Contract {
     //     var buffer bytes.Buffer
 	// buffer.WriteString("[")
 
-        let iterator, err = await ctx.stub.getStateByRange(startKey, endKey);
-        console.log(iterator);
-        return iterator;
-        for(let resultsIterator of iterator){
-            let queryResponse, err = resultsIterator.Next()
-            if (err != undefined) {
-                return Error(err.Error())
+        // let iterator, err = await ctx.stub.getStateByRange(startKey, endKey);
+        // console.log(iterator);
+        // return iterator;
+        // for(let resultsIterator of iterator){
+        //     let queryResponse, err = resultsIterator.Next()
+        //     if (err != undefined) {
+        //         return Error(err.Error())
+        //     }
+
+        //     allDocList.push(queryResponse);
+        //     // // Add a comma before array members, suppress it for the first array member
+        //     // if bArrayMemberAlreadyWritten == true {
+        //     //     buffer.WriteString(",")
+        //     // }
+        //     // buffer.WriteString("{\"Key\":")
+        //     // buffer.WriteString("\"")
+        //     // buffer.WriteString(queryResponse.Key)
+        //     // buffer.WriteString("\"")
+    
+        //     // buffer.WriteString(", \"Record\":")
+        //     // // Record is a JSON object, so we write as-is
+        //     // buffer.WriteString(string(queryResponse.Value))
+        //     // buffer.WriteString("}")
+        //     // bArrayMemberAlreadyWritten = true
+        // }
+        // return allDocList;
+        
+        for (let id in docList) {
+            //getState will search the whole db with the ID
+            const patientJSON = await ctx.stub.getState(id);
+
+            if (!patientJSON || patientJSON.length === 0) {
+                throw new Error(`The asset ${id} does not exist`);
             }
 
-            allDocList.push(queryResponse);
-            // // Add a comma before array members, suppress it for the first array member
-            // if bArrayMemberAlreadyWritten == true {
-            //     buffer.WriteString(",")
-            // }
-            // buffer.WriteString("{\"Key\":")
-            // buffer.WriteString("\"")
-            // buffer.WriteString(queryResponse.Key)
-            // buffer.WriteString("\"")
-    
-            // buffer.WriteString(", \"Record\":")
-            // // Record is a JSON object, so we write as-is
-            // buffer.WriteString(string(queryResponse.Value))
-            // buffer.WriteString("}")
-            // bArrayMemberAlreadyWritten = true
+
+            let jsonObj: any = JSON.parse(patientJSON.toString());
+            let doctor: Doctor = <Doctor>jsonObj;
+            if (doctor.docType != "patient") {
+                allDocList.push(doctor);
+            }
         }
+
         return allDocList;
-        
-        // for (let id in docList) {
-        //     //getState will search the whole db with the ID
-        //     const patientJSON = await ctx.stub.getState;
-
-        //     if (!patientJSON || patientJSON.length === 0) {
-        //         throw new Error(`The asset ${id} does not exist`);
-        //     }
-
-
-        //     let jsonObj: any = JSON.parse(patientJSON.toString());
-        //     let doctor: Doctor = <Doctor>jsonObj;
-        //     if (doctor.docType != "patient") {
-        //         allDocList.push(doctor);
-        //     }
-        // }
-
-        // return allDocList;
 
     }
 
