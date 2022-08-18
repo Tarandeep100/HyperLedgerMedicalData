@@ -70,17 +70,17 @@ function Patient() {
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
 
-    useEffect(() => {
-        async function fetchData() {
-            console.log("useEffect!")
-            // var res = ;
-            setDocList(await fetchReadDoctor("D1"));
-            // console.log(docList);
-            setPatientData(await fetchReadPatient(1));
-            // console.log(patientData);
-        }
-        fetchData();
-    });
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         console.log("useEffect!")
+    //         // var res = ;
+    //         setDocList(await fetchReadDoctor("D1"));
+    //         // console.log(docList);
+    //         setPatientData(await fetchReadPatient(1));
+    //         // console.log(patientData);
+    //     }
+    //     fetchData();
+    // });
 
     // var generateKeys = function () {
     //     // return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
@@ -107,8 +107,10 @@ function Patient() {
                 ' DOB : ' + pDob + ' Name: ' + pName +
                 ' keys generated: ' + PublicKeyString);
             console.log(PublicKeyString);
-            // console.log(await fetchReadPatient(1));
-            // console.log(await fetchReadDoctor("D1"));
+            setDocList(await fetchReadDoctor("D1"));
+            setPatientData(await fetchReadPatient(1));
+            console.log(docList);
+            console.log(patientData);
             console.log(JSON.parse(docList));
             console.log(patientData);
         }
