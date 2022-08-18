@@ -70,21 +70,21 @@ function Patient() {
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
 
-    useEffect(() => {
-        var res;
-        async function fetchData() {
-            res = await fetchReadDoctor("D1");
+    // useEffect(() => {
+    //     var res;
+    //     async function fetchData() {
+    //         res = await fetchReadDoctor("D1");
 
-            console.log(res);
+    //         console.log(res);
 
-            var result = [];
+    //         var result = [];
 
-            for (var i in res)
-                result.push([i, res[i]]);
-            setDocList(result);
-        }
-        fetchData();
-    },[docList]);
+    //         for (var i in res)
+    //             result.push([i, res[i]]);
+    //         setDocList(result);
+    //     }
+    //     fetchData();
+    // },[docList]);
 
     // var generateKeys = function () {
     //     // return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
@@ -111,14 +111,18 @@ function Patient() {
                 ' DOB : ' + pDob + ' Name: ' + pName +
                 ' keys generated: ' + PublicKeyString);
             console.log(PublicKeyString);
+            const docJson = {
+                "ID": "D1",
+                "Speciality": "Skin",
+                "Name": "Dave",
+                "Dob": "15/10/1980",
+                "docType": "Doctor"
+            }
+            var result = [];
 
-            // setDocList({
-            //     "ID": "D1",
-            //     "Speciality": "Skin",
-            //     "Name": "Dave",
-            //     "Dob": "15/10/1980",
-            //     "docType": "Doctor"
-            // });
+            for (var i in docJson)
+                result.push([i, docJson[i]]);
+            setDocList(result);
 
             // await setTimeout(2000);
             // setDocList(JSON.parse(res));
