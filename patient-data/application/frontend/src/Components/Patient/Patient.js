@@ -95,8 +95,8 @@ function Patient() {
 
     // }
 
-    const handleFirstTimeSubmit = async (event) => {
-        event.preventDefault();
+    const handleFirstTimeSubmit = async () => {
+        // event.preventDefault();
         const Bits = 1024;
         if (password.length >= 0) {
             const RSAkey = generateRSAKey(password, Bits);
@@ -109,8 +109,9 @@ function Patient() {
             console.log(PublicKeyString);
             setDocList(await fetchReadDoctor("D1"));
             setPatientData(await fetchReadPatient(1));
-            console.log(docList);
-            console.log(patientData);
+            await sleep(2000);
+            // console.log(docList);
+            // console.log(patientData);
             console.log(JSON.parse(docList));
             console.log(patientData);
         }
