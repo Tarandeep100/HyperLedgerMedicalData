@@ -149,7 +149,7 @@ function Doctor() {
                     </Button>
 
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle>Subscribe</DialogTitle>
+                        <DialogTitle>Submission Form</DialogTitle>
                         <DialogContent>
                             <DialogContentText>
                                 Please enter your password

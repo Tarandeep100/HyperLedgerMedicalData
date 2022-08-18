@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { generateRSAKey, publicKeyString } from 'cryptico';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -25,7 +25,7 @@ import { DataGrid } from '@mui/x-data-grid';
 // import TableHead from '@mui/material/TableHead';
 // import TableRow from '@mui/material/TableRow';
 // import Paper from '@mui/material/Paper';
-import { fetchReadDoctor, fetchReadPatient } from '../../api/Common';
+// import { fetchReadDoctor, fetchReadPatient } from '../../api/Common';
 
 // import { DataGrid } from '@mui/x-data-grid';
 const columns = [
@@ -339,7 +339,7 @@ function Patient() {
                             Allow Access
                         </Button>
                         <Dialog open={open} onClose={handleClose}>
-                            <DialogTitle>Subscribe</DialogTitle>
+                            <DialogTitle>Submission Form</DialogTitle>
                             <DialogContent>
                                 <DialogContentText>
                                     Please enter your password
