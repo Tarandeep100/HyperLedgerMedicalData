@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import logo from '../../../public/medchainlogo.png'
+import logo from '../../nedchainlogo.png'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
