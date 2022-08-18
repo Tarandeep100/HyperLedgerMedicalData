@@ -163,8 +163,8 @@ export class DataTransferContract extends Contract {
         let allDocList = [];
         let docList = ["D1", "D2", "D3"];//doctors id list
 
-        let startKey= "D1";
-        let endKey = "D3";
+        // let startKey= "D1";
+        // let endKey = "D3";
 
     //     var buffer bytes.Buffer
 	// buffer.WriteString("[")
