@@ -11,43 +11,45 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+
+import { DataGrid } from '@mui/x-data-grid';
+// import Table from '@mui/material/Table';
+// import TableBody from '@mui/material/TableBody';
+// import TableCell from '@mui/material/TableCell';
+// import TableContainer from '@mui/material/TableContainer';
+// import TableHead from '@mui/material/TableHead';
+// import TableRow from '@mui/material/TableRow';
+// import Paper from '@mui/material/Paper';
 import { fetchReadDoctor, fetchReadPatient } from '../../api/Common';
 
 // import { DataGrid } from '@mui/x-data-grid';
-// const columns = [
-//     { field: 'ID', headerName: 'ID', width: 90 },
-//     {
-//         field: 'Name',
-//         headerName: 'Doctor name',
-//         width: 150,
-//         editable: false,
-//     },
-//     {
-//         field: 'Speciality',
-//         headerName: 'Speciality',
-//         width: 110,
-//         editable: false,
-//     },
-//     {
-//         field: 'Dob',
-//         headerName: 'DOB',
-//         width: 110,
-//         editable: false,
-//     },
-//     {
-//         field: 'DocType',
-//         headerName: 'Type',
-//         width: 110,
-//         editable: false,
-//     },
-// ];
+const columns = [
+    { field: 'ID', headerName: 'ID', width: 90 },
+    {
+        field: 'Name',
+        headerName: 'Doctor name',
+        width: 150,
+        editable: false,
+    },
+    {
+        field: 'Speciality',
+        headerName: 'Speciality',
+        width: 110,
+        editable: false,
+    },
+    {
+        field: 'Dob',
+        headerName: 'DOB',
+        width: 110,
+        editable: false,
+    },
+    {
+        field: 'DocType',
+        headerName: 'Type',
+        width: 110,
+        editable: false,
+    },
+];
 
 
 function Patient() {
@@ -258,7 +260,7 @@ function Patient() {
                     </TableContainer> */}
                     <Box sx={{ height: 400, width: '100%' }}>
                         <DataGrid
-                            rows={rows}
+                            rows={docList}
                             columns={columns}
                             pageSize={5}
                             rowsPerPageOptions={[5]}
