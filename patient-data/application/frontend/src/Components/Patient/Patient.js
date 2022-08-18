@@ -84,7 +84,7 @@ function Patient() {
             setDocList(result);
         }
         fetchData();
-    });
+    },[docList]);
 
     // var generateKeys = function () {
     //     // return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
