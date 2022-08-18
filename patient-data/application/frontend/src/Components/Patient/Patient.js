@@ -120,11 +120,11 @@ function Patient() {
             }]
             var result = [];
 
-            for (var i in docJson[0]){
+            for (var i in docJson){
                 // console.log(i, docJson[i]);
                 result.push([i, docJson[i]]);
             }
-            console.log(JSON.parse(JSON.stringify(docJson[0])).ID);
+            console.log(JSON.parse(JSON.stringify(docJson)));
             // console.log(result);
             // console.log(result['ID']);
             setDocList(JSON.parse(JSON.stringify(docJson)));
