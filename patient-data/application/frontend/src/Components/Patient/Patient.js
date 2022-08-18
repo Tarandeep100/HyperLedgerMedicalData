@@ -66,6 +66,7 @@ function Patient() {
     var [docList, setDocList] = useState('');
     var [patientData, setPatientData] = useState('');
     var [currentUser, setCurrentUser] = useState('');
+    var [selectDoc, setSelectDoc] = useState('');
 
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
@@ -120,7 +121,7 @@ function Patient() {
             }]
             var result = [];
 
-            for (var i in docJson){
+            for (var i in docJson) {
                 // console.log(i, docJson[i]);
                 result.push([i, docJson[i]]);
             }
@@ -175,6 +176,25 @@ function Patient() {
     const handleAppointmentDate = (event) => {
         setAppointmentdate(event.target.value);
     }
+
+    handlePurge = () => {
+        // console.log("purge");
+        // console.log(this.state.deletedRows);
+        //TO-DO delete data from backend
+        // var newEventData= this.state.EventData.filter(
+        //     (r) => this.state.deletedRows.filter((sr) => sr == r._id).length < 1
+        //   );
+        // console.log(newEventData);
+        alert("Selected Doctors can now view your details")
+    }
+
+    handleRowSelection = (e) => {
+        // console.log("selection");
+        // console.log(this.state.EventData);
+        console.log("e=>", e);
+        // console.log(this.state.EventData.filter((r) => r._id == e));
+        setSelectDoc(e);
+    };
 
     return (
         <>
@@ -295,7 +315,13 @@ function Patient() {
                             rowsPerPageOptions={[5]}
                             checkboxSelection
                             disableSelectionOnClick
+
+
+                            onSelectionModelChange={this.handleRowSelection}
                         />
+                        <Button variant="outlined" onClick={this.handlePurge}>
+                            Delete
+                        </Button>
                     </Box>
                 </AccordionDetails>
             </Accordion>
