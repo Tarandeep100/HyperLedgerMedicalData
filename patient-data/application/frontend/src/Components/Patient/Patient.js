@@ -111,15 +111,16 @@ function Patient() {
             async function fetchData() {
                 res = await fetchReadDoctor("D1");
                 console.log(res);
+
+                var result = [];
+
+                for (var i in JSON.parse(res))
+                    result.push([i, res[i]]);
+                setDocList(result);
             }
             await fetchData();
-            setDocList({
-                "ID": "D1",
-                "Speciality": "Skin",
-                "Name": "Dave",
-                "Dob": "15/10/1980",
-                "docType": "Doctor"
-              });
+
+            
 
             // await setTimeout(2000);
             // setDocList(JSON.parse(res));
