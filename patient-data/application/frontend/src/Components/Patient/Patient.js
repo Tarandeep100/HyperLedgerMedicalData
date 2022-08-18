@@ -123,6 +123,7 @@ function Patient() {
             for (var i in docJson)
                 result.push([i, docJson[i]]);
             setDocList(result);
+            await setTimeout(2000);
 
             // await setTimeout(2000);
             // setDocList(JSON.parse(res));
