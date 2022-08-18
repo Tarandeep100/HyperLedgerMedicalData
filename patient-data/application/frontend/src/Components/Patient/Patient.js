@@ -281,6 +281,7 @@ function Patient() {
                     </TableContainer> */}
                     <Box sx={{ height: 400, width: '100%' }}>
                         <DataGrid
+                            getRowId={(row) => row.ID}
                             rows={docList}
                             columns={columns}
                             pageSize={5}
