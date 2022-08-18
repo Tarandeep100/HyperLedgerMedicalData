@@ -109,7 +109,7 @@ function Patient() {
             console.log(PublicKeyString);
             setDocList(await fetchReadDoctor("D1"));
             setPatientData(await fetchReadPatient(1));
-            await sleep(2000);
+            await setTimeout(2000);
             // console.log(docList);
             // console.log(patientData);
             console.log(JSON.parse(docList));
