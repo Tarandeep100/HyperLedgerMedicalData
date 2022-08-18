@@ -112,11 +112,9 @@ function Patient() {
                 res = await fetchReadDoctor("D1");
                 console.log(res);
             }
-            
-            fetchData.then(
-                setDocList(JSON.parse(res))
-            );
-            
+            await fetchData();
+            setDocList(res);
+
             // await setTimeout(2000);
             // setDocList(JSON.parse(res));
             // setPatientData(await fetchReadPatient(1));
