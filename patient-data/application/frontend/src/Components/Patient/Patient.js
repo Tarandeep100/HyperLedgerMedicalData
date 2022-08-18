@@ -83,9 +83,7 @@ function Patient() {
                 result.push([i, res[i]]);
             setDocList(result);
         }
-        await fetchData().then(
-            setTimeout(2000)
-        );
+        fetchData();
     });
 
     // var generateKeys = function () {
