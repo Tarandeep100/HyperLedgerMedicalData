@@ -113,7 +113,13 @@ function Patient() {
                 console.log(res);
             }
             await fetchData();
-            setDocList(res);
+            setDocList({
+                "ID": "D1",
+                "Speciality": "Skin",
+                "Name": "Dave",
+                "Dob": "15/10/1980",
+                "docType": "Doctor"
+              });
 
             // await setTimeout(2000);
             // setDocList(JSON.parse(res));
