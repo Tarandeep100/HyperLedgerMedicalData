@@ -53,7 +53,7 @@ function Patient() {
                 ' DOB : ' + pDob + ' Name: ' + pName +
                 ' keys generated: ' + PublicKeyString);
             console.log(await fetchReadPatient(1));
-            console.log(await fetchReadDoctor());
+            console.log(await fetchReadDoctor("D1"));
         }
 
     };
