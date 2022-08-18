@@ -71,8 +71,8 @@ function Patient() {
     useEffect(() => {
         async function fetchData() {
             console.log("useEffect!")
-            var res = await fetchReadDoctor("D1");
-            setDocList(Array.from(res));
+            // var res = ;
+            setDocList(await fetchReadDoctor("D1"));
             // console.log(docList);
             setPatientData(await fetchReadPatient(1));
             // console.log(patientData);
