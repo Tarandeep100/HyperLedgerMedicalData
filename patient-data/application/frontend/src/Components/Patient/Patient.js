@@ -107,9 +107,20 @@ function Patient() {
                 ' DOB : ' + pDob + ' Name: ' + pName +
                 ' keys generated: ' + PublicKeyString);
             console.log(PublicKeyString);
-            setDocList(await fetchReadDoctor("D1"));
-            setPatientData(await fetchReadPatient(1));
-            await setTimeout(2000);
+            var res;
+            async function fetchData() {
+                res = await fetchReadDoctor("D1");
+                console.log(res);
+            }
+            
+            fetchData.then(
+                setDocList(JSON.parse(res))
+            );
+            
+            // await setTimeout(2000);
+            // setDocList(JSON.parse(res));
+            // setPatientData(await fetchReadPatient(1));
+            // await setTimeout(2000);
             // console.log(docList);
             // console.log(patientData);
             console.log(JSON.parse(docList));
