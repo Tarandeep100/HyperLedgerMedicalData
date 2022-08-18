@@ -13,8 +13,38 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { fetchReadDoctor, fetchReadPatient } from '../../api/Common';
 
+import { DataGrid } from '@mui/x-data-grid';
+const columns = [
+    { field: 'id', headerName: 'ID', width: 90 },
+    {
+        field: 'name',
+        headerName: 'Doctor name',
+        width: 150,
+        editable: false,
+    },
+    {
+        field: 'speciality',
+        headerName: 'Speciality',
+        width: 110,
+        editable: false,
+    }
+];
+
+const rows = [
+    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+];
+
 
 function Patient() {
+
 
     var [pid, setPid] = useState('');
     var [pName, setPname] = useState('');
@@ -27,6 +57,12 @@ function Patient() {
     var [currentUser, setCurrentUser] = useState('');
 
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
+
+
+    useEffect(() => {
+        console.log(fetchReadDoctor("D1"));
+        console.log(fetchReadPatient(1));
+      }, []);
 
     // var generateKeys = function () {
     //     // return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
@@ -172,7 +208,17 @@ function Patient() {
                     <Typography>Allow Access</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-
+                    <Box sx={{ height: 400, width: '100%' }}>
+                        <DataGrid
+                            rows={rows}
+                            columns={columns}
+                            pageSize={5}
+                            rowsPerPageOptions={[5]}
+                            checkboxSelection
+                            disableSelectionOnClick
+                            experimentalFeatures={{ newEditingApi: true }}
+                        />
+                    </Box>
                 </AccordionDetails>
             </Accordion>
             <Accordion>
@@ -220,19 +266,19 @@ function Patient() {
                         </div>
                         <InputLabel variant="standard" htmlFor="doctor-list">
                             Doctor:
-                        <Select
-                            labelId="doctors list"
-                            id="pDoctor"
-                            value={pDoctor}
-                            label="doctor list"
-                            onChange={handleDoctorChange}
-                            
-                        >
-                            {DoctorName.map(((name) => 
-                                <MenuItem key={name} value={name}>{name}</MenuItem>
-                            ))}
-                        </Select>
-                        
+                            <Select
+                                labelId="doctors list"
+                                id="pDoctor"
+                                value={pDoctor}
+                                label="doctor list"
+                                onChange={handleDoctorChange}
+
+                            >
+                                {DoctorName.map(((name) =>
+                                    <MenuItem key={name} value={name}>{name}</MenuItem>
+                                ))}
+                            </Select>
+
                         </InputLabel>
                         {/* <select id="doctor-list" name="doctorlist" value={pDoctor} onChange={handleDoctorChange} /> */}
 
