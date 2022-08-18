@@ -70,17 +70,23 @@ function Patient() {
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         console.log("useEffect!")
-    //         // var res = ;
-    //         setDocList(await fetchReadDoctor("D1"));
-    //         // console.log(docList);
-    //         setPatientData(await fetchReadPatient(1));
-    //         // console.log(patientData);
-    //     }
-    //     fetchData();
-    // });
+    useEffect(() => {
+        var res;
+        async function fetchData() {
+            res = await fetchReadDoctor("D1");
+
+            console.log(res);
+
+            var result = [];
+
+            for (var i in res)
+                result.push([i, res[i]]);
+            setDocList(result);
+        }
+        await fetchData().then(
+            setTimeout(2000)
+        );
+    });
 
     // var generateKeys = function () {
     //     // return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
@@ -107,21 +113,7 @@ function Patient() {
                 ' DOB : ' + pDob + ' Name: ' + pName +
                 ' keys generated: ' + PublicKeyString);
             console.log(PublicKeyString);
-            var res;
-            async function fetchData() {
-                res = await fetchReadDoctor("D1");
-                
-                console.log(res);
 
-                var result = [];
-
-                for (var i in res)
-                    result.push([i, res[i]]);
-                setDocList(result);
-            }
-            await fetchData().then(
-                setTimeout(2000)
-            );
             // setDocList({
             //     "ID": "D1",
             //     "Speciality": "Skin",
@@ -129,15 +121,15 @@ function Patient() {
             //     "Dob": "15/10/1980",
             //     "docType": "Doctor"
             // });
-            
+
             // await setTimeout(2000);
             // setDocList(JSON.parse(res));
             // setPatientData(await fetchReadPatient(1));
             // await setTimeout(2000);
             // console.log(docList);
+            // // console.log(patientData);
+            // console.log(JSON.parse(docList));
             // console.log(patientData);
-            console.log(JSON.parse(docList));
-            console.log(patientData);
         }
 
     };
