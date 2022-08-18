@@ -68,12 +68,15 @@ function Patient() {
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
 
-    useEffect(async () => {
-        console.log("useEffect!");
-        setDocList(await fetchReadDoctor("D1"));
-        console.log(docList);
-        setPatientData(await fetchReadPatient(1));
-        console.log(patientData);
+    useEffect( () => {
+        async function fetchData() {
+            console.log("useEffect!")
+            setDocList(await fetchReadDoctor("D1"));
+            console.log(docList);
+            setPatientData(await fetchReadPatient(1));
+            console.log(patientData);
+        }
+        fetchData();
     }, []);
 
     // var generateKeys = function () {
