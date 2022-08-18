@@ -72,12 +72,12 @@ function Patient() {
         async function fetchData() {
             console.log("useEffect!")
             setDocList(await fetchReadDoctor("D1"));
-            console.log(docList);
+            // console.log(docList);
             setPatientData(await fetchReadPatient(1));
-            console.log(patientData);
+            // console.log(patientData);
         }
         fetchData();
-    }, [docList,patientData]);
+    });
 
     // var generateKeys = function () {
     //     // return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
@@ -236,7 +236,7 @@ function Patient() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {docList.map((row) => (
+                                {{docList}.map((row) => (
                                     <TableRow
                                         key={row.ID}
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
