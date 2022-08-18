@@ -11,6 +11,11 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 import { DataGrid } from '@mui/x-data-grid';
 // import Table from '@mui/material/Table';
@@ -67,6 +72,8 @@ function Patient() {
     var [patientData, setPatientData] = useState('');
     var [currentUser, setCurrentUser] = useState('');
     var [selectDoc, setSelectDoc] = useState('');
+    // var [patientPass, setPatientPass] = useState('');
+    const [open, setOpen] = React.useState(false);
 
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
@@ -99,6 +106,14 @@ function Patient() {
     //     //return PublicKeyString;
 
     // }
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleClickOpen = () => {
+        setOpen(true);
+      };
 
     const handleFirstTimeSubmit = async (event) => {
         event.preventDefault();
@@ -319,9 +334,30 @@ function Patient() {
 
                             onSelectionModelChange={handleRowSelection}
                         />
-                        <Button variant="outlined" onClick={handlePurge}>
-                            AllowAccess
+                        <Button variant="outlined" onClick={handleClickOpen}>
+                            Allow Access
                         </Button>
+                        <Dialog open={open} onClose={handleClose}>
+                            <DialogTitle>Subscribe</DialogTitle>
+                            <DialogContent>
+                                <DialogContentText>
+                                    Please enter your password
+                                </DialogContentText>
+                                <TextField
+                                    autoFocus
+                                    margin="dense"
+                                    id="password"
+                                    label="Password"
+                                    type="password"
+                                    fullWidth
+                                    variant="standard"
+                                />
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose}>Cancel</Button>
+                                <Button onClick={handlePurge}>Submit</Button>
+                            </DialogActions>
+                        </Dialog>
                     </Box>
                 </AccordionDetails>
             </Accordion>
