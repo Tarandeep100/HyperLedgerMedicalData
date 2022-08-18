@@ -68,7 +68,7 @@ function Patient() {
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
 
-    useEffect( () => {
+    useEffect(() => {
         async function fetchData() {
             console.log("useEffect!")
             var res = await fetchReadDoctor("D1");
@@ -227,7 +227,7 @@ function Patient() {
                     <Typography>Allow Access</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <TableContainer component={Paper}>
+                    {/* <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
@@ -255,7 +255,17 @@ function Patient() {
                                 ))}
                             </TableBody>
                         </Table>
-                    </TableContainer>
+                    </TableContainer> */}
+                    <Box sx={{ height: 400, width: '100%' }}>
+                        <DataGrid
+                            rows={rows}
+                            columns={columns}
+                            pageSize={5}
+                            rowsPerPageOptions={[5]}
+                            checkboxSelection
+                            disableSelectionOnClick
+                        />
+                    </Box>
                 </AccordionDetails>
             </Accordion>
             <Accordion>
