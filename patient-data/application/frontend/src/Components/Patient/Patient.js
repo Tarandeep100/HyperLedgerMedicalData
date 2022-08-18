@@ -124,6 +124,7 @@ function Patient() {
                 console.log(i, docJson[i]);
                 result.push([i, docJson[i]]);
             }
+            console.log(JSON.parse(docJson));
             console.log(result);
             console.log(result['ID']);
             setDocList(result);
