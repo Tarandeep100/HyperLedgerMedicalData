@@ -120,8 +120,11 @@ function Patient() {
             }
             var result = [];
 
-            for (var i in JSON.parse(docJson))
+            for (var i in docJson){
+                console.log(i, docJson[i]);
                 result.push([i, docJson[i]]);
+            }
+                
             setDocList(result);
             await setTimeout(2000);
 
