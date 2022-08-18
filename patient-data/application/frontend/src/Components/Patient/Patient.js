@@ -72,7 +72,7 @@ function Patient() {
         async function fetchData() {
             console.log("useEffect!")
             var res = await fetchReadDoctor("D1");
-            setDocList(JSON.parse(JSON.stringify(res)));
+            setDocList(Array.from(res));
             // console.log(docList);
             setPatientData(await fetchReadPatient(1));
             // console.log(patientData);
@@ -239,7 +239,7 @@ function Patient() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {{docList}.map((row) => (
+                                {docList.map((row) => (
                                     <TableRow
                                         key={row.ID}
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
