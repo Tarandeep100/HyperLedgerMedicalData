@@ -111,22 +111,22 @@ function Patient() {
                 ' DOB : ' + pDob + ' Name: ' + pName +
                 ' keys generated: ' + PublicKeyString);
             console.log(PublicKeyString);
-            const docJson = {
+            const docJson = [{
                 ID: "D1",
                 Speciality: "Skin",
                 Name: "Dave",
                 Dob: "15/10/1980",
                 docType: "Doctor"
-            }
+            }]
             var result = [];
 
-            for (var i in docJson){
-                console.log(i, docJson[i]);
+            for (var i in docJson[0]){
+                // console.log(i, docJson[i]);
                 result.push([i, docJson[i]]);
             }
-            console.log(JSON.parse(JSON.stringify(docJson)).ID);
-            console.log(result);
-            console.log(result['ID']);
+            console.log(JSON.parse(JSON.stringify(docJson[0])).ID);
+            // console.log(result);
+            // console.log(result['ID']);
             setDocList(JSON.parse(JSON.stringify(docJson)));
             console.log(docList.ID);
             await setTimeout(2000);
