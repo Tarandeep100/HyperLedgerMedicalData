@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { generateRSAKey, publicKeyString } from 'cryptico';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -54,14 +54,16 @@ function Patient() {
     var [pAppointmentDate, setAppointmentdate] = useState('');
     // var [pAppointment, setAppointment] = useState('');
     // var [dName, setDname]  = useState('');
+    var [docList, setDocList] = useState('');
+    var [patientData, setPatientData] = useState('');
     var [currentUser, setCurrentUser] = useState('');
 
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
 
     useEffect(() => {
-        console.log(fetchReadDoctor("D1"));
-        console.log(fetchReadPatient(1));
+        console.log(await fetchReadDoctor("D1"));
+        console.log(await fetchReadPatient(1));
       }, []);
 
     // var generateKeys = function () {
@@ -88,6 +90,7 @@ function Patient() {
             alert('Patient id submitted ' + pid +
                 ' DOB : ' + pDob + ' Name: ' + pName +
                 ' keys generated: ' + PublicKeyString);
+            console.log(PublicKeyString);
             console.log(await fetchReadPatient(1));
             console.log(await fetchReadDoctor("D1"));
         }
