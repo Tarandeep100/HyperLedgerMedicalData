@@ -112,11 +112,11 @@ function Patient() {
                 ' keys generated: ' + PublicKeyString);
             console.log(PublicKeyString);
             const docJson = {
-                "ID": "D1",
-                "Speciality": "Skin",
-                "Name": "Dave",
-                "Dob": "15/10/1980",
-                "docType": "Doctor"
+                ID: "D1",
+                Speciality: "Skin",
+                Name: "Dave",
+                Dob: "15/10/1980",
+                docType: "Doctor"
             }
             var result = [];
 
