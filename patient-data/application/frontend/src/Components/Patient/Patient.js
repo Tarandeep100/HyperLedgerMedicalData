@@ -200,6 +200,7 @@ function Patient() {
         //     (r) => this.state.deletedRows.filter((sr) => sr == r._id).length < 1
         //   );
         // console.log(newEventData);
+        setOpen(false);
         alert(`Doctor ${selectDoc} can now view your data`);
     }
 

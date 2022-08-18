@@ -7,9 +7,17 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
+// import InputLabel from '@mui/material/InputLabel';
+// import Select from '@mui/material/Select';
+// import MenuItem from '@mui/material/MenuItem';
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+import { DataGrid } from '@mui/x-data-grid';
 
 function Doctor() {
 
@@ -17,9 +25,60 @@ function Doctor() {
     var [dPreferredappointment, setPreferredAppointment] = useState('');
     var [dAcceptAppointment, setAppointmentTime1] = useState('');
     var [dRejectAppointment, setAppointmentTime2] = useState('');
+    
+    const PatienName = ['Tarandeep'];
+
+    var [docList, setDocList] = useState('');
+    var [patientData, setPatientData] = useState('');
+    var [currentUser, setCurrentUser] = useState('');
+    var [selectDoc, setSelectDoc] = useState('');
+    // var [patientPass, setPatientPass] = useState('');
+    const [open, setOpen] = React.useState(false);
+    
     // var generateKeys = function(){
     //     return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
     // }
+
+    /**
+     * 
+     * {
+  "BloodGroup": "b+",
+  "EyeColor": "brown",
+  "ID": "1",
+  "Name": "Tarandeep",
+  "docType": "patient"
+}
+     */
+var patientData = 
+JSON.parse(JSON.stringify({
+    "BloodGroup": "b+",
+    "EyeColor": "brown",
+    "ID": "1",
+    "Name": "Tarandeep",
+    "docType": "patient"
+  }));
+
+  const handleClose = () => {
+    setOpen(false);
+};
+
+const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handlePurge = () => {
+    // console.log("purge");
+    // console.log(this.state.deletedRows);
+    //TO-DO delete data from backend
+    // var newEventData= this.state.EventData.filter(
+    //     (r) => this.state.deletedRows.filter((sr) => sr == r._id).length < 1
+    //   );
+    // console.log(newEventData);
+    setOpen(false);
+    alert(`Patient Data: \n ${patientData}`);
+}
+
+
     const handleAppointmentConfirmationSubmit = (event) => {
         //setAppointment(event.target.value);
         event.preventDefault();
@@ -71,6 +130,46 @@ function Doctor() {
                     <Typography>Get Patient</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
+                    <InputLabel variant="standard" htmlFor="patient-list">
+                        Patient:
+                        <Select
+                            label="patient list"
+                            // onChange={handleDoctorChange}
+
+                        >
+                            {PatienName.map(((name) =>
+                                <MenuItem key={name} value={name}>{name}</MenuItem>
+                            ))}
+                        </Select>
+                        
+
+                    </InputLabel>
+                    <Button variant="outlined" onClick={handleClickOpen}>
+                            View Data
+                        </Button>
+
+                        <Dialog open={open} onClose={handleClose}>
+                            <DialogTitle>Subscribe</DialogTitle>
+                            <DialogContent>
+                            <DialogContentText>
+                                    Please enter your password
+                                </DialogContentText>
+                                <TextField
+                                    autoFocus
+                                    margin="dense"
+                                    id="password"
+                                    label="Password"
+                                    type="password"
+                                    fullWidth
+                                    variant="standard"
+                                />
+                                
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose}>Cancel</Button>
+                                <Button onClick={handlePurge}>Submit</Button>
+                            </DialogActions>
+                        </Dialog>
 
                 </AccordionDetails>
             </Accordion>
@@ -139,7 +238,7 @@ function Doctor() {
                                 <label for="appointmentConfirmation2">Reject</label>
                             </label>
                         </div>
-                        
+
                         <div>
                             <Button
                                 type="submit"
