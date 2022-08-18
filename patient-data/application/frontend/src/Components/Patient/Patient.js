@@ -185,7 +185,7 @@ function Patient() {
         //     (r) => this.state.deletedRows.filter((sr) => sr == r._id).length < 1
         //   );
         // console.log(newEventData);
-        alert("Selected Doctors can now view your details")
+        alert(`Doctor ${selectDoc} can now view your data`);
     }
 
     const handleRowSelection = (e) => {
@@ -320,7 +320,7 @@ function Patient() {
                             onSelectionModelChange={handleRowSelection}
                         />
                         <Button variant="outlined" onClick={handlePurge}>
-                            Delete
+                            AllowAccess
                         </Button>
                     </Box>
                 </AccordionDetails>
