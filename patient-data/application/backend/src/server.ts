@@ -271,7 +271,7 @@ app.post("/create_doctor", async (req, res) => {
 });
 
 app.post("/read_doctor", async (req, res) => {
-    let id = req.query.id == undefined ? undefined : req.query.id.toString();
+    let id = req.query.id == undefined ? "D1" : req.query.id.toString();
 
     // if (id == undefined) {
     //     res.json({ "error": "no id in request" })
