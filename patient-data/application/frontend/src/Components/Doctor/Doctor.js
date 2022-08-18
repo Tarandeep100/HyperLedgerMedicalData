@@ -25,7 +25,7 @@ function Doctor() {
     var [dPreferredappointment, setPreferredAppointment] = useState('');
     var [dAcceptAppointment, setAppointmentTime1] = useState('');
     var [dRejectAppointment, setAppointmentTime2] = useState('');
-    
+
     const PatienName = ['Tarandeep'];
 
     var [docList, setDocList] = useState('');
@@ -34,7 +34,7 @@ function Doctor() {
     var [selectDoc, setSelectDoc] = useState('');
     // var [patientPass, setPatientPass] = useState('');
     const [open, setOpen] = React.useState(false);
-    
+
     // var generateKeys = function(){
     //     return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
     // }
@@ -49,34 +49,34 @@ function Doctor() {
   "docType": "patient"
 }
      */
-var patientData = 
-JSON.parse(JSON.stringify({
-    "BloodGroup": "b+",
-    "EyeColor": "brown",
-    "ID": "1",
-    "Name": "Tarandeep",
-    "docType": "patient"
-  }));
+    var patientData =
+        JSON.stringify({
+            "BloodGroup": "b+",
+            "EyeColor": "brown",
+            "ID": "1",
+            "Name": "Tarandeep",
+            "docType": "patient"
+        });
 
-  const handleClose = () => {
-    setOpen(false);
-};
+    const handleClose = () => {
+        setOpen(false);
+    };
 
-const handleClickOpen = () => {
-    setOpen(true);
-  };
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
-  const handlePurge = () => {
-    // console.log("purge");
-    // console.log(this.state.deletedRows);
-    //TO-DO delete data from backend
-    // var newEventData= this.state.EventData.filter(
-    //     (r) => this.state.deletedRows.filter((sr) => sr == r._id).length < 1
-    //   );
-    // console.log(newEventData);
-    setOpen(false);
-    alert(`Patient Data: \n ${patientData}`);
-}
+    const handlePurge = () => {
+        // console.log("purge");
+        // console.log(this.state.deletedRows);
+        //TO-DO delete data from backend
+        // var newEventData= this.state.EventData.filter(
+        //     (r) => this.state.deletedRows.filter((sr) => sr == r._id).length < 1
+        //   );
+        // console.log(newEventData);
+        setOpen(false);
+        alert(`Patient Data: \n ${patientData}`);
+    }
 
 
     const handleAppointmentConfirmationSubmit = (event) => {
@@ -134,42 +134,42 @@ const handleClickOpen = () => {
                         Patient:
                         <Select
                             label="patient list"
-                            // onChange={handleDoctorChange}
+                        // onChange={handleDoctorChange}
 
                         >
                             {PatienName.map(((name) =>
                                 <MenuItem key={name} value={name}>{name}</MenuItem>
                             ))}
                         </Select>
-                        
+
 
                     </InputLabel>
                     <Button variant="outlined" onClick={handleClickOpen}>
-                            View Data
-                        </Button>
+                        View Data
+                    </Button>
 
-                        <Dialog open={open} onClose={handleClose}>
-                            <DialogTitle>Subscribe</DialogTitle>
-                            <DialogContent>
+                    <Dialog open={open} onClose={handleClose}>
+                        <DialogTitle>Subscribe</DialogTitle>
+                        <DialogContent>
                             <DialogContentText>
-                                    Please enter your password
-                                </DialogContentText>
-                                <TextField
-                                    autoFocus
-                                    margin="dense"
-                                    id="password"
-                                    label="Password"
-                                    type="password"
-                                    fullWidth
-                                    variant="standard"
-                                />
-                                
-                            </DialogContent>
-                            <DialogActions>
-                                <Button onClick={handleClose}>Cancel</Button>
-                                <Button onClick={handlePurge}>Submit</Button>
-                            </DialogActions>
-                        </Dialog>
+                                Please enter your password
+                            </DialogContentText>
+                            <TextField
+                                autoFocus
+                                margin="dense"
+                                id="password"
+                                label="Password"
+                                type="password"
+                                fullWidth
+                                variant="standard"
+                            />
+
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>Cancel</Button>
+                            <Button onClick={handlePurge}>Submit</Button>
+                        </DialogActions>
+                    </Dialog>
 
                 </AccordionDetails>
             </Accordion>
