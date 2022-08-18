@@ -69,6 +69,7 @@ function Patient() {
 
 
     useEffect(async () => {
+        console.log("useEffect!");
         setDocList(await fetchReadDoctor("D1"));
         console.log(docList);
         setPatientData(await fetchReadPatient(1));
