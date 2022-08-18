@@ -128,7 +128,7 @@ function Patient() {
             // console.log(result);
             // console.log(result['ID']);
             setDocList(JSON.parse(JSON.stringify(docJson)));
-            console.log(docList.ID);
+            console.log(docList[0].ID);
             await setTimeout(2000);
 
             // await setTimeout(2000);
@@ -137,7 +137,7 @@ function Patient() {
             // await setTimeout(2000);
             // console.log(docList);
             // // console.log(patientData);
-            console.log(JSON.parse(docList));
+            // console.log(JSON.parse(docList));
             // console.log(patientData);
         }
 
