@@ -61,7 +61,7 @@ function Patient() {
     const DoctorName = ['this', 'example', 'isnt', 'funny'];
 
 
-    useEffect(() => {
+    useEffect(async () => {
         console.log(await fetchReadDoctor("D1"));
         console.log(await fetchReadPatient(1));
       }, []);
