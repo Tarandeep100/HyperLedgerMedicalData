@@ -44,7 +44,7 @@ const columns = [
         editable: false,
     },
     {
-        field: 'DocType',
+        field: 'docType',
         headerName: 'Type',
         width: 110,
         editable: false,
