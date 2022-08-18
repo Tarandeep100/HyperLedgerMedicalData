@@ -71,7 +71,8 @@ function Patient() {
     useEffect( () => {
         async function fetchData() {
             console.log("useEffect!")
-            setDocList(await fetchReadDoctor("D1"));
+            var res = await fetchReadDoctor("D1");
+            setDocList(JSON.parse(JSON.stringify(res)));
             // console.log(docList);
             setPatientData(await fetchReadPatient(1));
             // console.log(patientData);
@@ -106,7 +107,7 @@ function Patient() {
             console.log(PublicKeyString);
             // console.log(await fetchReadPatient(1));
             // console.log(await fetchReadDoctor("D1"));
-            console.log(docList);
+            console.log(JSON.parse(docList));
             console.log(patientData);
         }
 
@@ -226,7 +227,7 @@ function Patient() {
                     <Typography>Allow Access</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    {/* <TableContainer component={Paper}>
+                    <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
@@ -254,7 +255,7 @@ function Patient() {
                                 ))}
                             </TableBody>
                         </Table>
-                    </TableContainer> */}
+                    </TableContainer>
                 </AccordionDetails>
             </Accordion>
             <Accordion>
