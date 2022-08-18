@@ -95,8 +95,8 @@ function Patient() {
 
     // }
 
-    const handleFirstTimeSubmit = async () => {
-        // event.preventDefault();
+    const handleFirstTimeSubmit = async (event) => {
+        event.preventDefault();
         const Bits = 1024;
         if (password.length >= 0) {
             const RSAkey = generateRSAKey(password, Bits);
