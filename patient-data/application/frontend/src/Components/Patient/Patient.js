@@ -177,7 +177,7 @@ function Patient() {
         setAppointmentdate(event.target.value);
     }
 
-    handlePurge = () => {
+    const handlePurge = () => {
         // console.log("purge");
         // console.log(this.state.deletedRows);
         //TO-DO delete data from backend
@@ -188,7 +188,7 @@ function Patient() {
         alert("Selected Doctors can now view your details")
     }
 
-    handleRowSelection = (e) => {
+    const handleRowSelection = (e) => {
         // console.log("selection");
         // console.log(this.state.EventData);
         console.log("e=>", e);
@@ -317,9 +317,9 @@ function Patient() {
                             disableSelectionOnClick
 
 
-                            onSelectionModelChange={this.handleRowSelection}
+                            onSelectionModelChange={handleRowSelection}
                         />
-                        <Button variant="outlined" onClick={this.handlePurge}>
+                        <Button variant="outlined" onClick={handlePurge}>
                             Delete
                         </Button>
                     </Box>
