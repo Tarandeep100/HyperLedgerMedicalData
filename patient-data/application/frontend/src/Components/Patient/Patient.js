@@ -104,8 +104,10 @@ function Patient() {
                 ' DOB : ' + pDob + ' Name: ' + pName +
                 ' keys generated: ' + PublicKeyString);
             console.log(PublicKeyString);
-            console.log(await fetchReadPatient(1));
-            console.log(await fetchReadDoctor("D1"));
+            // console.log(await fetchReadPatient(1));
+            // console.log(await fetchReadDoctor("D1"));
+            console.log(docList);
+            console.log(patientData);
         }
 
     };
@@ -224,7 +226,7 @@ function Patient() {
                     <Typography>Allow Access</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <TableContainer component={Paper}>
+                    {/* <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
@@ -252,7 +254,7 @@ function Patient() {
                                 ))}
                             </TableBody>
                         </Table>
-                    </TableContainer>
+                    </TableContainer> */}
                 </AccordionDetails>
             </Accordion>
             <Accordion>
