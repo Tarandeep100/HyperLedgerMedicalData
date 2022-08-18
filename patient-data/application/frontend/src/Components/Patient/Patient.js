@@ -130,7 +130,7 @@ function Patient() {
             // await setTimeout(2000);
             // console.log(docList);
             // // console.log(patientData);
-            // console.log(JSON.parse(docList));
+            console.log(JSON.parse(docList));
             // console.log(patientData);
         }
 
