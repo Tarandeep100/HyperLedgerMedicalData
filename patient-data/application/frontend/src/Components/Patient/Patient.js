@@ -11,36 +11,43 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import { fetchReadDoctor, fetchReadPatient } from '../../api/Common';
 
-import { DataGrid } from '@mui/x-data-grid';
-const columns = [
-    { field: 'ID', headerName: 'ID', width: 90 },
-    {
-        field: 'Name',
-        headerName: 'Doctor name',
-        width: 150,
-        editable: false,
-    },
-    {
-        field: 'Speciality',
-        headerName: 'Speciality',
-        width: 110,
-        editable: false,
-    },
-    {
-        field: 'Dob',
-        headerName: 'DOB',
-        width: 110,
-        editable: false,
-    },
-    {
-        field: 'DocType',
-        headerName: 'Type',
-        width: 110,
-        editable: false,
-    },
-];
+// import { DataGrid } from '@mui/x-data-grid';
+// const columns = [
+//     { field: 'ID', headerName: 'ID', width: 90 },
+//     {
+//         field: 'Name',
+//         headerName: 'Doctor name',
+//         width: 150,
+//         editable: false,
+//     },
+//     {
+//         field: 'Speciality',
+//         headerName: 'Speciality',
+//         width: 110,
+//         editable: false,
+//     },
+//     {
+//         field: 'Dob',
+//         headerName: 'DOB',
+//         width: 110,
+//         editable: false,
+//     },
+//     {
+//         field: 'DocType',
+//         headerName: 'Type',
+//         width: 110,
+//         editable: false,
+//     },
+// ];
 
 
 function Patient() {
@@ -62,9 +69,11 @@ function Patient() {
 
 
     useEffect(async () => {
-        console.log(await fetchReadDoctor("D1"));
-        console.log(await fetchReadPatient(1));
-      }, []);
+        setDocList(await fetchReadDoctor("D1"));
+        console.log(docList);
+        setPatientData(await fetchReadPatient(1));
+        console.log(patientData);
+    }, []);
 
     // var generateKeys = function () {
     //     // return (Date.now().toString(36) + Math.random().toString(36).substring(2));    
@@ -211,18 +220,35 @@ function Patient() {
                     <Typography>Allow Access</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Box sx={{ height: 400, width: '100%' }}>
-                        <DataGrid
-                            getRowId = {(row) = row.ID}
-                            rows={docList}
-                            columns={columns}
-                            pageSize={5}
-                            rowsPerPageOptions={[5]}
-                            checkboxSelection
-                            disableSelectionOnClick
-                            // experimentalFeatures={{ newEditingApi: true }}
-                        />
-                    </Box>
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>ID </TableCell>
+                                    <TableCell align="right">Speciality</TableCell>
+                                    <TableCell align="right">Name</TableCell>
+                                    <TableCell align="right">DOB</TableCell>
+                                    <TableCell align="right">DocType</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {docList.map((row) => (
+                                    <TableRow
+                                        key={row.ID}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            {row.ID}
+                                        </TableCell>
+                                        <TableCell align="right">{row.Speciality}</TableCell>
+                                        <TableCell align="right">{row.Name}</TableCell>
+                                        <TableCell align="right">{row.Dob}</TableCell>
+                                        <TableCell align="right">{row.docType}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </AccordionDetails>
             </Accordion>
             <Accordion>
