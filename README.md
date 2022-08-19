@@ -72,8 +72,8 @@ npm start
 
 ## ScreenShots
 
-![Patient ](https://raw.githubusercontent.com/tarandeep100/HyperLedgerMedicalData/main/PatientScreenShot.png)
-![Hospital ](https://raw.githubusercontent.com/tarandeep100/HyperLedgerMedicalData/main/HospitalScreenShot.png)
-![Doctor ](https://raw.githubusercontent.com/tarandeep100/HyperLedgerMedicalData/main/DoctorScreenShot.png)
+![Patient ](https://raw.githubusercontent.com/tarandeep100/HyperLedgerMedicalData/main/Patient.jpg)
+![Hospital ](https://raw.githubusercontent.com/tarandeep100/HyperLedgerMedicalData/main/Hospital.jpg)
+![Doctor ](https://raw.githubusercontent.com/tarandeep100/HyperLedgerMedicalData/main/Doctor.jpg)
 
 
