@@ -63,6 +63,10 @@ npm start
 ## Author
 - [@Tarandeep100](https://github.com/Tarandeep100/)
 
+## Architecture
+
+![Architecture](https://raw.githubusercontent.com/tarandeep100/HyperLedgerMedicalData/main/Architecture.drawio.png)
+
 ## State Diagram
 
 ![State Diagram](https://raw.githubusercontent.com/tarandeep100/HyperLedgerMedicalData/main/State%20Diagram.jpg)
