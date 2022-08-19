@@ -1,16 +1,10 @@
 
-# HyperLedger Hospital Management 
-A patient and doctor management system which shares data between hospitals using hyperdedger fabric blockchain. There are total 3 entities 
-1. Hospital
-2. Patient
-3. Doctor
+# Med Chain - Patient-Led Health Transformation
+Empowering patient to have control of their medical data, they should be able to grant or revoke access to the data as per their needs. They should be aware about who is access this data. 
+Med chain gives them the power to share theur records with the doctors in their medical network.
+Using blockchain we have created a secure and reliable network.
 
-Hospital - Under this entity, Patients and Doctors get registered on the system and unique ID gets generated. 
-
-Patient - This entity holds all the data related to patient. It enable patients to create appointments and select appropriate doctor based on the speciality. Patient can create appointment as per his preference and if new date/time suggested by doctor, he can accept/reject the suggested date/time.
-
-Doctor - Under this entity, It holds doctor list and appointment list created by patinet. Each doctor can see appointments on his name and can have ability to accept/reject appointment or suggest a new date and time for it.
-
+Medchain is also trying to change the monetization of medical data in current healthcare system by introducing telemedicine market in the near future, where patients and doctors will be able to interact with each other and patients will be incentivized for their transparency by various research lab and insurance companies that will use their data for their own research.
 
 
 
@@ -55,22 +49,19 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 
 Running backend patient-data/application/backend
 ```
-yarn
-yarn start
+npm i
+npm start
 ```
 
 Running front-end patient-data/application/frontend
+
+change the backend url in the env file as per your server config
 ```
-yarn 
-yarn start
+npm i
+npm start
 ```
 ## Author
-
-- [@vinaysingh8866](https://github.com/vinaysingh8866/)
 - [@Tarandeep100](https://github.com/Tarandeep100/)
-- [@Shweta-source-byte](https://github.com/Shweta-source-byte)
-- [@Dmitri]
-- [@Muhammad]
 
 ## State Diagram
 
