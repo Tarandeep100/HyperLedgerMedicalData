@@ -75,7 +75,7 @@ function Hospital() {
     }
     const handlePatientSubmit = (event) => {
         event.preventDefault();
-        alert('Patient name submitted ' + pName + ' ID is : ' + generateID());
+        alert('Generated ID is : ' + generateID());
     };
 
     const handleDoctorSubmit = (event) => {
@@ -117,7 +117,7 @@ function Hospital() {
                         noValidate
                         autoComplete="off"
                     >
-                        <div>
+                        {/* <div>
                             <TextField
                                 required
                                 id="pName"
@@ -126,14 +126,14 @@ function Hospital() {
                                 value={pName}
                                 onChange={handlePatientChange}
                             />
-                        </div>
+                        </div> */}
                         <div>
                             <Button
                                 type="submit"
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Submit
+                                Generate ID
                             </Button>
                         </div>
                     </Box>
